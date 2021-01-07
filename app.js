@@ -8,6 +8,6 @@ app.use(express.json());
 const Routes = require("./routes/routes");
 app.use(Routes);
 
-app.listen(3000, process.env.IP, () => {
+app.listen(process.env.PORT || 3000, process.env.IP, () => {
     console.log("server running on local host");
 });
