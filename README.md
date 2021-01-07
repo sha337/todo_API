@@ -1,7 +1,7 @@
 # todo List API
 This is a simple todo List API built using Node.js on the backend and Postgresql for the database
 The API performs the basic CRUD functinality.
-Each todo contains:
+Each todo contains: <br>
   todo_id (unique interger)
   title 
   date (the date on which todo is created) 
