@@ -9,9 +9,9 @@ Each todo contains: <br>
   <li>state (i assumed it to be an boolen variale, determining wether the task is completed or not. false - not completed, true - completed)</li> 
   
 ## Approach
-when a create request is sent, API receives title and priority from client side. Date and state(false by default) id added on the backend.
-when a read request is sent, all the todos and sent as a response with decreasing order of priority.
-when an update request is sent, todo_id is sent along the parameter(req.param) and rest of details are sent along the body(req.body).
-A delete request can be sent to delete the todo from database
+when a create request is sent, API receives title and priority from client side. Date and state(false by default) id added on the backend. <br>
+when a read request is sent, all the todos and sent as a response with decreasing order of priority.<br>
+when an update request is sent, todo_id is sent along the parameter(req.param) and rest of details are sent along the body(req.body).<br>
+A delete request can be sent to delete the todo from database<br>
 
 ##DB schema
