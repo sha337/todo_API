@@ -3,67 +3,56 @@ const router  = express.Router();
 const pool = require('../db');
 
 
-// get all todos
+// Get all todos
 router.get('/todos', async(req, res) => {
     try {
-        const allTodos = await pool.query("SELECT * FROM todo");
-
+        const allTodos = await pool.query("SELECT * FROM todo ORDER BY priority DESC");
         res.json(allTodos.rows);
-    } catch (err) {
-        console.error(err.message);
-    }
-})
-
-// get a todo
-router.get('/todos/:id', async(req, res) => {
-    try {
-        const {id} = req.params;
-        const todo = pool.query(
-            "SELECT * FROM todo WHERE todo_id = $1",
-            [id]
-        );
-
-        res.json(todo.rows[0]);
-
-    } catch (err) {
-        console.error(err.message);
-    }
-})
-
-// create a todo
-router.post('/todos', async(req, res) => {
-    try {
-        const {description} = req.body;
-        const newTodo = await pool.query(
-            "INSERT INTO todo (description) VALUES ($1) RETURNING *",
-            [description]
-        );
-
-        res.json(newTodo.rows[0]);
-    } catch (err) {
-        console.error(err.message)
-    }
-})
-
-// update a todo
-router.put('/todos/:id', async(req, res) => {
-    try {
-        const {id} = req.params;
-        const {description} = req.body;
-        
-        const updateTodo = await pool.query(
-            "UPDATE todo SET description = $1 WHERE todo_id = $2",
-            [description, id]
-        );
-
-        res.json("Todo was Updated!");
-        
-    } catch (err) {
+    } 
+    catch (err) {
         console.error(err.message);
     }
 });
 
-// delete a todo
+// Create a todo
+router.post('/todos', async(req, res) => {
+    try {
+        const {title} = req.body;
+        const {priority} = req.body;
+        const state = false;
+        const newTodo = await pool.query(
+            "INSERT INTO todo (title, priority, state) VALUES ($1, $2, $3) RETURNING *",
+            [title, priority, state]
+        );
+
+        res.json(newTodo.rows[0]);
+    } 
+    catch (err) {
+        console.error(err.message)
+    }
+});
+
+// Update a todo
+router.put('/todos/:id', async(req, res) => {
+    try {
+        const {id} = req.params;
+        const {title} = req.body;
+        const {priority} = req.body;
+        const {state} = req.body;
+        
+        const updateTodo = await pool.query(
+            "UPDATE todo SET title = $1, priority = $2, state = $3 WHERE todo_id = $4",
+            [title, priority, state, id]
+        );
+
+        res.json("Todo was Updated!");
+    }
+    catch (err) {
+        console.error(err.message);
+    }
+});
+
+// Delete a todo
 router.delete('/todos/:id', async(req, res) => {
     try {
         const {id} = req.params;
@@ -73,8 +62,8 @@ router.delete('/todos/:id', async(req, res) => {
         );
 
         res.json("Todo was successfully deleted");
-
-    } catch (err) {
+    } 
+    catch (err) {
         console.error(err.message);
     }
 });

@@ -1,8 +1,11 @@
 CREATE DATABASE todo_database;
 
-\c into todo_database
+\c todo_database
 
 CREATE TABLE todo(
     todo_id SERIAL PRIMARY KEY,
-    description VARCHAR(255)
+    title VARCHAR(255),
+    date DATE DEFAULT CURRENT_DATE,
+    priority INT,
+    state BOOLEAN
 );
