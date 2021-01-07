@@ -13,6 +13,7 @@ when a create request is sent, API receives title and priority from client side.
 when a read request is sent, all the todos are sent as a response with decreasing order of priority.<br>
 when an update request is sent, todo_id is sent along the parameter(req.param) and rest of details are sent along the body(req.body).<br>
 A delete request can be sent to delete the todo from database<br>
+When a search request is sent (assuming the parameter on which to seach and value both provided), all the results matching the criteria are returned.
 
 
 ## DB schema

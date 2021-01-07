@@ -34,6 +34,24 @@ router.post('/todos', async(req, res) => {
     }
 });
 
+// Search a todo
+router.post('/todos/search', async(req, res) => {
+    try {
+        const {prop} = req.body;
+        const {value} = req.body;
+        
+        const searchStr = "SELECT * FROM todo where "+prop+" = "+value;
+    
+        const Todo = await pool.query(searchStr);
+
+        res.json(Todo.rows);
+
+    } catch (err) {
+        console.error(err.message);
+        res.json("Sorry! something went wrong");
+    }
+})
+
 // Update a todo
 router.put('/todos/:id', async(req, res) => {
     try {
