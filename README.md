@@ -10,8 +10,25 @@ Each todo contains: <br>
   
 ## Approach
 when a create request is sent, API receives title and priority from client side. Date and state(false by default) id added on the backend. <br>
-when a read request is sent, all the todos and sent as a response with decreasing order of priority.<br>
+when a read request is sent, all the todos are sent as a response with decreasing order of priority.<br>
 when an update request is sent, todo_id is sent along the parameter(req.param) and rest of details are sent along the body(req.body).<br>
 A delete request can be sent to delete the todo from database<br>
 
-##DB schema
+
+## DB schema
+there is only one table in the database with following entities:
+<li>todo_id : SERIAL PRIMARY KEY</li>
+<li>title : VARCHAR(255)</li>
+<li>date : DATE DEFAULT CURRENT_DATE</li>
+<li>priority : INT</li>
+<li>state : BOOLEAN</li>
+
+## Steps to Run on your localhost
+<ol>
+  <li>Clone the repository</li>
+  <li>cd todo_API</li>
+  <li>run "npm install" to install all the dependencies</li>
+  <li>Open your postgres terminal and run the 3 commands given in database.sql. It'll create the database and required table</li>
+  <li>open db.js and replace the user and password with your own credentials</li>
+  <li>run "node app.js" to start the saever</li>
+</ol>
