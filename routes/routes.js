@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const pool = require('../db');
+const pool = require('../models/db');
 
 
 // Get all todos
@@ -11,6 +11,7 @@ router.get('/todos', async(req, res) => {
     } 
     catch (err) {
         console.error(err.message);
+        res.json("Sorry! something went wrong");
     }
 });
 
@@ -28,7 +29,8 @@ router.post('/todos', async(req, res) => {
         res.json(newTodo.rows[0]);
     } 
     catch (err) {
-        console.error(err.message)
+        console.error(err.message);
+        res.json("Sorry! something went wrong");
     }
 });
 
@@ -49,6 +51,7 @@ router.put('/todos/:id', async(req, res) => {
     }
     catch (err) {
         console.error(err.message);
+        res.json("Sorry! something went wrong");
     }
 });
 
@@ -65,6 +68,7 @@ router.delete('/todos/:id', async(req, res) => {
     } 
     catch (err) {
         console.error(err.message);
+        res.json("Sorry! something went wrong");
     }
 });
 
