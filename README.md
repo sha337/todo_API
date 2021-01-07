@@ -2,11 +2,11 @@
 This is a simple todo List API built using Node.js on the backend and Postgresql for the database
 The API performs the basic CRUD functinality.
 Each todo contains: <br>
-  todo_id (unique interger) <br>
-  title <br>
-  date (the date on which todo is created) <br>
-  priority (i assumed it to be an interger. Higher the number, greater the priority ) <br>
-  state (i assumed it to be an boolen variale, determining wether the task is completed or not. false - not completed, true - completed) <br>
+  <li>todo_id (unique interger)</li>
+  <li>title</li> 
+  <li>date (the date on which todo is created)</li>
+  <li>priority (i assumed it to be an interger. Higher the number, greater the priority )</li> 
+  <li>state (i assumed it to be an boolen variale, determining wether the task is completed or not. false - not completed, true - completed)</li> 
   
 ## Approach
 when a create request is sent, API receives title and priority from client side. Date and state(false by default) id added on the backend.
