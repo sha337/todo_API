@@ -9,5 +9,5 @@ const Routes = require("./routes/routes");
 app.use(Routes);
 
 app.listen(process.env.PORT || 3000, process.env.IP, () => {
-    console.log("server running on local host");
+    console.log("server started");
 });
