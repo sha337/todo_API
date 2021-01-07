@@ -28,7 +28,7 @@ there is only one table in the database with following entities:
   <li>Clone the repository</li>
   <li>cd todo_API</li>
   <li>run "npm install" to install all the dependencies</li>
-  <li>Open your postgres terminal and run the 3 commands given in database.sql. It'll create the database and required table</li>
-  <li>open db.js and replace the user and password with your own credentials</li>
+  <li>Open your postgres terminal and run the 3 commands given in models/database.sql. It'll create the database and required table</li>
+  <li>open models/db.js and replace the user and password with your own credentials</li>
   <li>run "node app.js" to start the saever</li>
 </ol>
