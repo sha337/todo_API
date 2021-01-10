@@ -33,3 +33,16 @@ there is only one table in the database with following entities:
   <li>open models/db.js and replace the user and password with your own credentials</li>
   <li>run "node app.js" to start the saever</li>
 </ol>
+
+## Using the API
+<li>send a GET request to /toods to get all the todos in DB</li>
+<li>send a POST request to /todos to create a todo - (send 'title' & 'priority' in body)
+</li>
+<li>send a PUT request to /todos/:id to update a todo - (send todo_id in params & 'title','priority','state' in body)</li>
+<li>send a DELETE request to /todo/:id to delete a todo - (send todo_id in params)
+</li>
+<li>send a POST request to /todos/search to search a todo - (send prop and value in body, e.g: prop = 'title', value = 'go shopping' OR prop = 'state', value = 'false')</li>
+
+
+
+
